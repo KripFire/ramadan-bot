@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formation TikTok Ads Manager</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0f0f0f;
+      color: #f1f1f1;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 15px;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: #010101;
+      border-bottom: 2px solid #fe2c55;
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .header-logo {
+      width: 36px; height: 36px;
+      background: #fe2c55;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .header-title { font-size: 17px; font-weight: 700; color: #fff; }
+    .header-sub   { font-size: 12px; color: #888; margin-top: 2px; }
+
+    /* ── Nav pills ── */
+    .nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 14px 16px;
+      scrollbar-width: none;
+      background: #161616;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav-btn {
+      flex-shrink: 0;
+      background: #222;
+      border: 1px solid #333;
+      color: #ccc;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap;
+    }
+    .nav-btn.active, .nav-btn:hover {
+      background: #fe2c55;
+      border-color: #fe2c55;
+      color: #fff;
+    }
+
+    /* ── Content ── */
+    .content { padding: 16px; display: none; }
+    .content.active { display: block; }
+
+    /* ── Module card ── */
+    .module-card {
+      background: #1a1a1a;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #2a2a2a;
+      margin-bottom: 12px;
+    }
+    .module-header {
+      padding: 16px 18px 14px;
+      border-left: 4px solid var(--color);
+    }
+    .module-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .module-desc {
+      font-size: 13.5px;
+      color: #aaa;
+      line-height: 1.5;
+    }
+
+    /* ── Fields ── */
+    .field {
+      padding: 12px 18px;
+      border-top: 1px solid #222;
+    }
+    .field-name {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--color);
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      margin-bottom: 6px;
+    }
+    .field-value {
+      font-size: 13.5px;
+      color: #ccc;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+    .field-value code {
+      background: #2a2a2a;
+      color: #69C9D0;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: 'SF Mono', Menlo, monospace;
+      font-size: 12px;
+    }
+    .field-value strong { color: #f1f1f1; }
+
+    .module-footer {
+      padding: 10px 18px;
+      border-top: 1px solid #222;
+      font-size: 11px;
+      color: #555;
+    }
+
+    /* ── Badge ── */
+    .badge {
+      display: inline-block;
+      background: #222;
+      border: 1px solid #333;
+      color: #888;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 10px;
+      margin: 2px 2px 6px 0;
+    }
+
+    /* ── Menu ── */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .menu-item {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 14px;
+      padding: 14px;
+      cursor: pointer;
+      transition: all .2s;
+      text-align: center;
+    }
+    .menu-item:hover, .menu-item:active {
+      border-color: #fe2c55;
+      background: #1f1115;
+    }
+    .menu-item-emoji { font-size: 26px; display: block; margin-bottom: 6px; }
+    .menu-item-num   { font-size: 11px; color: #555; margin-bottom: 2px; }
+    .menu-item-title { font-size: 13px; font-weight: 600; color: #e0e0e0; }
+    .menu-item-cmd   { font-size: 11px; color: #444; margin-top: 4px; font-family: monospace; }
+
+    .menu-tip {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-left: 4px solid #fe2c55;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #aaa;
+      line-height: 1.5;
+    }
+    .menu-tip strong { color: #fe2c55; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-logo">🎓</div>
+  <div>
+    <div class="header-title">TikTok Ads Manager</div>
+    <div class="header-sub">Formation complète • 10 modules</div>
+  </div>
+</div>
+
+<!-- Nav -->
+<div class="nav">
+  <button class="nav-btn active" onclick="show('menu')">📚 Menu</button>
+  <button class="nav-btn" onclick="show('m1')">1 · Intro</button>
+  <button class="nav-btn" onclick="show('m2')">2 · Structure</button>
+  <button class="nav-btn" onclick="show('m3')">3 · Objectifs</button>
+  <button class="nav-btn" onclick="show('m4')">4 · Ciblage</button>
+  <button class="nav-btn" onclick="show('m5')">5 · Formats</button>
+  <button class="nav-btn" onclick="show('m6')">6 · Budget</button>
+  <button class="nav-btn" onclick="show('m7')">7 · Créatifs</button>
+  <button class="nav-btn" onclick="show('m8')">8 · Pixel</button>
+  <button class="nav-btn" onclick="show('m9')">9 · Analyse</button>
+  <button class="nav-btn" onclick="show('m10')">10 · Avancé</button>
+</div>
+
+<!-- ═══ MENU ═══ -->
+<div id="menu" class="content active">
+  <div class="menu-grid">
+    <div class="menu-item" onclick="show('m1')">
+      <span class="menu-item-emoji">📱</span>
+      <div class="menu-item-num">Module 1</div>
+      <div class="menu-item-title">Introduction & Interface</div>
+      <div class="menu-item-cmd">/formation module:1</div>
+    </div>
+    <div class="menu-item" onclick="show('m2')">
+      <span class="menu-item-emoji">🏗️</span>
+      <div class="menu-item-num">Module 2</div>
+      <div class="menu-item-title">Structure des campagnes</div>
+      <div class="menu-item-cmd">/formation module:2</div>
+    </div>
+    <div class="menu-item" onclick="show('m3')">
+      <span class="menu-item-emoji">🎯</span>
+      <div class="menu-item-num">Module 3</div>
+      <div class="menu-item-title">Objectifs de campagne</div>
+      <div class="menu-item-cmd">/formation module:3</div>
+    </div>
+    <div class="menu-item" onclick="show('m4')">
+      <span class="menu-item-emoji">👥</span>
+      <div class="menu-item-num">Module 4</div>
+      <div class="menu-item-title">Ciblage d'audience</div>
+      <div class="menu-item-cmd">/formation module:4</div>
+    </div>
+    <div class="menu-item" onclick="show('m5')">
+      <span class="menu-item-emoji">🎬</span>
+      <div class="menu-item-num">Module 5</div>
+      <div class="menu-item-title">Formats publicitaires</div>
+      <div class="menu-item-cmd">/formation module:5</div>
+    </div>
+    <div class="menu-item" onclick="show('m6')">
+      <span class="menu-item-emoji">💰</span>
+      <div class="menu-item-num">Module 6</div>
+      <div class="menu-item-title">Budget & Enchères</div>
+      <div class="menu-item-cmd">/formation2 module:6</div>
+    </div>
+    <div class="menu-item" onclick="show('m7')">
+      <span class="menu-item-emoji">🎨</span>
+      <div class="menu-item-num">Module 7</div>
+      <div class="menu-item-title">Création de publicités</div>
+      <div class="menu-item-cmd">/formation2 module:7</div>
+    </div>
+    <div class="menu-item" onclick="show('m8')">
+      <span class="menu-item-emoji">🔍</span>
+      <div class="menu-item-num">Module 8</div>
+      <div class="menu-item-title">TikTok Pixel</div>
+      <div class="menu-item-cmd">/formation2 module:8</div>
+    </div>
+    <div class="menu-item" onclick="show('m9')">
+      <span class="menu-item-emoji">📊</span>
+      <div class="menu-item-num">Module 9</div>
+      <div class="menu-item-title">Analyse & Optimisation</div>
+      <div class="menu-item-cmd">/formation2 module:9</div>
+    </div>
+    <div class="menu-item" onclick="show('m10')">
+      <span class="menu-item-emoji">🚀</span>
+      <div class="menu-item-num">Module 10</div>
+      <div class="menu-item-title">Stratégies avancées</div>
+      <div class="menu-item-cmd">/formation2 module:10</div>
+    </div>
+  </div>
+  <div class="menu-tip">
+    💡 Commence par le <strong>Module 1</strong> et progresse dans l'ordre. Les modules <strong>8</strong> (Pixel) et <strong>10</strong> (Avancé) sont plus techniques — maîtrise les bases avant.
+  </div>
+</div>
+
+<!-- ═══ MODULE 1 ═══ -->
+<div id="m1" class="content">
+  <div class="module-card" style="--color:#010101; border-left: 4px solid #fe2c55;">
+    <div class="module-header" style="border-left-color:#fe2c55">
+      <div class="module-title">📱 Module 1 — Introduction à TikTok Ads Manager</div>
+      <div class="module-desc">TikTok Ads Manager est la plateforme publicitaire self-serve de TikTok. Avec <strong>1 milliard+ d'utilisateurs actifs mensuels</strong> et un algorithme de distribution puissant, TikTok offre un potentiel de reach exceptionnel — même pour les petits budgets.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🌐 Accès & création de compte</div>
+      <div class="field-value"><strong>URL :</strong> <code>ads.tiktok.com</code>
+• <strong>Business Center</strong> — compte chapeau pour gérer plusieurs Ad Accounts et collaborateurs
+• <strong>Ad Account direct</strong> — accès simplifié pour un seul annonceur
+Conseil : créer le Business Center en premier, puis y rattacher l'Ad Account.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🧭 Les 5 sections du tableau de bord</div>
+      <div class="field-value">• <strong>Tableau de bord</strong> — KPIs globaux sur la période choisie
+• <strong>Campagne</strong> — création, gestion et suivi
+• <strong>Actifs (Assets)</strong> — audiences, créatifs, Pixel
+• <strong>Rapports</strong> — exports personnalisés CSV/PDF
+• <strong>Outils</strong> — Pixel, Catalogue, Creative Center</div>
+    </div>
+    <div class="field">
+      <div class="field-name">📊 Métriques de la page d'accueil</div>
+      <div class="field-value">Colonnes par défaut : <strong>Impressions · CPM · Clics · CPC · CTR · Conversions · CPA · Dépenses</strong>. Chaque métrique est cliquable pour trier. Période ajustable : Aujourd'hui / 7j / 30j / Personnalisée.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">👤 Rôles & permissions</div>
+      <div class="field-value">• <strong>Admin</strong> — accès total (création, modification, facturation)
+• <strong>Opérateur</strong> — gestion des campagnes, sans facturation
+• <strong>Analyste</strong> — lecture seule, rapports uniquement
+• <strong>Finance</strong> — paiements et facturation uniquement</div>
+    </div>
+    <div class="field">
+      <div class="field-name">💡 Conseil de démarrage</div>
+      <div class="field-value">1. Installer le <strong>TikTok Pixel</strong> sur ton site (Module 8)
+2. Vérifier que <code>CompletePayment</code> remonte correctement
+3. Mettre au minimum <strong>50 €</strong> de crédit publicitaire
+4. Préparer au moins <strong>3 vidéos</strong> en format 9:16 (Module 7)</div>
+    </div>
+    <div class="module-footer">📚 Formation TikTok Ads Manager • Module 1/10</div>
+  </div>
+</div>
+
+<!-- ═══ MODULE 2 ═══ -->
+<div id="m2" class="content">
+  <div class="module-card" style="--color:#69C9D0;">
+    <div class="module-header" style="border-left-color:#69C9D0">
+      <div class="module-title">🏗️ Module 2 — Structure des campagnes TikTok</div>
+      <div class="module-desc">TikTok Ads Manager est organisé en <strong>3 niveaux hiérarchiques</strong> : Campagne → Groupe d'annonces → Annonce. Chaque niveau contrôle un aspect différent.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">📐 Hiérarchie en 3 niveaux</div>
+      <div class="field-value"><code>Campagne (objectif + budget global)
+  └─ Groupe d'annonces (audience + budget + enchère)
+     └─ Annonce (vidéo + texte + CTA + URL)</code></div>
+    </div>
+    <div class="field">
+      <div class="field-name">🎯 Niveau 1 — Campagne</div>
+      <div class="field-value">• <strong>1 seul objectif</strong> par campagne (impossible à changer après création)
+• Option <strong>CBO</strong> : TikTok répartit le budget entre les Ad Groups selon les performances
+• <strong>Nommage recommandé :</strong> <code>FR_Conversions_Sneakers_2025-03</code></div>
+    </div>
+    <div class="field">
+      <div class="field-name">👥 Niveau 2 — Groupe d'annonces</div>
+      <div class="field-value">• <strong>Placement</strong> : automatique (recommandé) ou manuel
+• <strong>Budget</strong> : min <strong>20 €/jour</strong> par Ad Group
+• <strong>Calendrier</strong> : dates fixées ou diffusion continue
+• <strong>Ciblage</strong> : démographie, intérêts, custom audiences
+• <strong>Enchère</strong> : Lowest Cost, Bid Cap, Cost Cap, ROAS min</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🎬 Niveau 3 — Annonce</div>
+      <div class="field-value">• Vidéo créative (upload ou bibliothèque)
+• Texte publicitaire : max <strong>100 caractères</strong>
+• CTA : 28 options (Shop Now, Learn More, Sign Up, Download…)
+• URL de destination : landing page ou App Store</div>
+    </div>
+    <div class="field">
+      <div class="field-name">⚠️ Erreur fréquente à éviter</div>
+      <div class="field-value">Modifier le ciblage ou le budget pendant la <strong>phase d'apprentissage (7-14j)</strong> relance l'algorithme à zéro. Observer uniquement pendant les 7 premiers jours.</div>
+    </div>
+    <div class="module-footer">📚 Formation TikTok Ads Manager • Module 2/10</div>
+  </div>
+</div>
+
+<!-- ═══ MODULE 3 ═══ -->
+<div id="m3" class="content">
+  <div class="module-card" style="--color:#FF0050;">
+    <div class="module-header" style="border-left-color:#FF0050">
+      <div class="module-title">🎯 Module 3 — Objectifs de campagne TikTok</div>
+      <div class="module-desc">L'objectif est le paramètre le plus important. Il détermine <strong>comment TikTok optimise la diffusion</strong> et <strong>quels utilisateurs</strong> voient tes annonces.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🗺️ Les 3 catégories</div>
+      <div class="field-value"><strong>1. Notoriété</strong> → faire connaître la marque
+<strong>2. Considération</strong> → générer intérêt et trafic
+<strong>3. Conversion</strong> → déclencher une action (achat, inscription)</div>
+    </div>
+    <div class="field">
+      <div class="field-name">📣 Notoriété — Reach</div>
+      <div class="field-value">• Maximise les impressions uniques
+• Facturation en <strong>CPM</strong>
+• Contrôle de fréquence (ex: max 2 impressions / 7 jours)
+• Idéal : lancement de marque, événements</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🚦 Trafic (Traffic)</div>
+      <div class="field-value">• Optimise vers les clics ou les vues de landing page
+• Préférer <strong>"Landing Page Views"</strong> : exclut les clics accidentels
+• Facturation en <strong>CPC</strong> ou CPM optimisé</div>
+    </div>
+    <div class="field">
+      <div class="field-name">📋 Génération de leads</div>
+      <div class="field-value">• Formulaires natifs <strong>dans l'app TikTok</strong> — aucune redirection
+• Taux de complétion moyen : <strong>15-20%</strong> vs 5-8% sur landing page externe
+• Leads exportables CSV ou connectables via Zapier/CRM</div>
+    </div>
+    <div class="field">
+      <div class="field-name">💰 Conversions — L'objectif ROI</div>
+      <div class="field-value">• Requiert le <strong>TikTok Pixel</strong> installé
+• Événement cible recommandé : <code>CompletePayment</code>
+• <strong>Phase d'apprentissage</strong> : 50 conversions/semaine/Ad Group nécessaires
+• Facturation en <strong>oCPM</strong> (impressions, optimisation vers l'action)</div>
+    </div>
+    <div class="field">
+      <div class="field-name">📦 Ventes du catalogue</div>
+      <div class="field-value">• Requiert un <strong>catalogue produits</strong> connecté
+• Ads dynamiques personnalisées par utilisateur
+• Idéal pour les boutiques avec <strong>50+ produits</strong></div>
+    </div>
+    <div class="module-footer">📚 Formation TikTok Ads Manager • Module 3/10</div>
+  </div>
+</div>
+
+<!-- ═══ MODULE 4 ═══ -->
+<div id="m4" class="content">
+  <div class="module-card" style="--color:#25F4EE;">
+    <div class="module-header" style="border-left-color:#25F4EE">
+      <div class="module-title">👥 Module 4 — Ciblage d'audience TikTok</div>
+      <div class="module-desc">TikTok recommande souvent un ciblage <strong>large</strong> pour laisser l'algorithme trouver les meilleurs utilisateurs. La clé : tester différentes combinaisons et laisser les données guider.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🌍 Ciblage démographique</div>
+      <div class="field-value">• <strong>Localisation</strong> : pays, région, ville
+• <strong>Âge</strong> : 13-17 / 18-24 / 25-34 / 35-44 / 45-54 / 55+
+• <strong>Genre</strong> : Homme / Femme / Tous
+• <strong>Langue de l'appareil</strong> : utile pour la diaspora francophone
+• <strong>Connexion</strong> : WiFi, 4G, 3G</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🎮 Intérêts & comportements</div>
+      <div class="field-value">• <strong>200+ catégories</strong> : Beauté, Gaming, Finance, Voyage, Sport…
+• Comportements récents (30j) : a regardé, liké, suivi des créateurs dans [niche]
+• Max 3-5 intérêts cohérents par Ad Group</div>
+    </div>
+    <div class="field">
+      <div class="field-name">👤 Custom Audiences — 5 sources</div>
+      <div class="field-value">• <strong>Fichier client</strong> : CSV emails/téléphones (~40-60% match rate)
+• <strong>Trafic web</strong> : visiteurs via Pixel (1-180 jours)
+• <strong>Engagement TikTok</strong> : viewers 25/50/75/100%, likes, partages
+• <strong>Activité app</strong> : utilisateurs de ton app mobile
+• <strong>Lead Gen</strong> : ayant soumis un formulaire
+Taille minimale recommandée : <strong>1 000 personnes</strong></div>
+    </div>
+    <div class="field">
+      <div class="field-name">🔮 Lookalike Audiences</div>
+      <div class="field-value">• Source min <strong>1 000 personnes</strong> (idéalement 10 000+)
+• <strong>Narrow 1%</strong> : très similaire, petite taille
+• <strong>Balanced 5%</strong> : compromis ← recommandé pour débuter
+• <strong>Broad 20%</strong> : large portée, moins similaire
+Meilleure source : acheteurs <code>CompletePayment</code></div>
+    </div>
+    <div class="field">
+      <div class="field-name">🚫 Exclusions importantes</div>
+      <div class="field-value">• Toujours exclure les <strong>acheteurs récents (30j)</strong> des campagnes acquisition
+• Exclure les audiences retargeting des campagnes prospection
+→ Évite la cannibalisation et les dépenses inutiles</div>
+    </div>
+    <div class="module-footer">📚 Formation TikTok Ads Manager • Module 4/10</div>
+  </div>
+</div>
+
+<!-- ═══ MODULE 5 ═══ -->
+<div id="m5" class="content">
+  <div class="module-card" style="--color:#FE2C55;">
+    <div class="module-header" style="border-left-color:#FE2C55">
+      <div class="module-title">🎬 Module 5 — Formats publicitaires TikTok</div>
+      <div class="module-desc">TikTok propose plusieurs formats, du plus accessible au plus premium. Le <strong>In-Feed Ad</strong> est le point de départ pour 95% des annonceurs.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">📲 In-Feed Ads — Le format standard</div>
+      <div class="field-value">• Dans le fil <strong>"Pour toi"</strong>, entre les vidéos organiques
+• Aspect natif — ressemble à du contenu organique
+• <strong>Durée :</strong> 5-60s (optimal : 15-30s) · Skipable après 6s
+• CTA cliquable vers URL ou App Store
+• Disponible pour <strong>tous les objectifs</strong></div>
+    </div>
+    <div class="field">
+      <div class="field-name">✨ Spark Ads — Booster l'organique</div>
+      <div class="field-value">• Booste un <strong>post organique existant</strong> (ton compte ou créateur)
+• Conserve les <strong>likes, commentaires, partages</strong> déjà existants
+• Recommandé pour débuter — l'algo favorise les Spark Ads
+• Autorisation valable 30 ou 365 jours</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🔝 TopView — Impact maximal</div>
+      <div class="field-value">• 1ère vidéo vue à <strong>l'ouverture de l'app</strong>, non-skipable 3s
+• Jusqu'à 60 secondes · Format premium
+• Idéal : lancements de produits, événements nationaux</div>
+    </div>
+    <div class="field">
+      <div class="field-name">💥 Brand Takeover</div>
+      <div class="field-value">• Plein écran avant le fil "Pour toi"
+• 3-5s (image) ou jusqu'à 60s (vidéo)
+• <strong>1 seul annonceur/jour/pays</strong> — exclusivité totale
+• Le format le plus impactant et le plus coûteux</div>
+    </div>
+    <div class="field">
+      <div class="field-name">📐 Spécifications techniques (In-Feed)</div>
+      <div class="field-value">• <strong>Ratio :</strong> 9:16 vertical (obligatoire)
+• <strong>Résolution :</strong> 1080 × 1920 px minimum
+• <strong>Format :</strong> MP4 ou MOV
+• <strong>Taille max :</strong> 500 MB
+• <strong>Durée :</strong> 5-60s · <strong>Frame rate :</strong> max 60 fps
+• <strong>Zone safe :</strong> éviter 150px haut et 250px bas</div>
+    </div>
+    <div class="module-footer">📚 Formation TikTok Ads Manager • Module 5/10</div>
+  </div>
+</div>
+
+<!-- ═══ MODULE 6 ═══ -->
+<div id="m6" class="content">
+  <div class="module-card" style="--color:#FFD700;">
+    <div class="module-header" style="border-left-color:#FFD700">
+      <div class="module-title">💰 Module 6 — Budget & Stratégies d'enchères</div>
+      <div class="module-desc">Le budget et la stratégie d'enchère déterminent <strong>combien tu dépenses</strong> et <strong>comment TikTok achète les impressions</strong>. Un mauvais paramétrage peut gaspiller tout le budget en quelques heures.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">💵 Budget journalier vs total</div>
+      <div class="field-value">• <strong>Budget journalier :</strong> min <strong>20 €/jour</strong> par Ad Group. L'algo peut dépenser jusqu'à 120% certains jours.
+• <strong>Budget total :</strong> réparti sur la durée. Idéal pour les promos à dates fixes.
+• <strong>CBO :</strong> budget au niveau campagne, TikTok répartit entre Ad Groups automatiquement.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🎯 Les 4 stratégies d'enchères</div>
+      <div class="field-value"><strong>1. Lowest Cost (auto)</strong> — maximise les résultats sans contrainte. Idéal pour débuter.
+<strong>2. Bid Cap</strong> — plafond d'enchère manuel. Contrôle total mais risque de sous-dépense.
+<strong>3. Cost Cap</strong> — vise un CPA cible. Recommandé pour les conversions.
+<strong>4. ROAS Minimum</strong> — optimise vers un retour sur dépenses. Requiert l'événement Purchase avec valeur.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">⚙️ Phase d'apprentissage — Ne pas toucher !</div>
+      <div class="field-value">Dure <strong>7-14 jours</strong> ou jusqu'à <strong>50 conversions/semaine/Ad Group</strong>.
+Pendant cette phase : <strong>aucune modification</strong> du ciblage, budget (±20% max), ni enchère. Observer uniquement — les résultats se stabilisent après.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">💡 Règles budgétaires pratiques</div>
+      <div class="field-value">• <strong>Budget test :</strong> 3× ton CPA cible en journalier
+  Ex : CPA cible 20 € → <strong>60 €/jour</strong>
+• <strong>Scaling :</strong> max +20-30% par modification, espacer de 48h
+• <strong>Budget minimum viable :</strong> 50 €/jour pour sortir de la phase d'apprentissage en 7 jours</div>
+    </div>
+    <div class="module-footer">📚 Formation TikTok Ads Manager • Module 6/10</div>
+  </div>
+</div>
+
+<!-- ═══ MODULE 7 ═══ -->
+<div id="m7" class="content">
+  <div class="module-card" style="--color:#FF6B6B;">
+    <div class="module-header" style="border-left-color:#FF6B6B">
+      <div class="module-title">🎨 Module 7 — Création de publicités performantes</div>
+      <div class="module-desc">Sur TikTok, <strong>le créatif est roi</strong>. L'authenticité et le format natif "TikTok style" surpassent systématiquement les productions léchées.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">⏱️ La règle des 3 premières secondes</div>
+      <div class="field-value">Si tu ne captes pas l'attention en <strong>3 secondes</strong>, l'utilisateur swipe. Techniques :
+• <strong>Question choc :</strong> "Tu paies encore trop cher ta mutuelle ?"
+• <strong>Affirmation contre-intuitive :</strong> "Arrête d'économiser de l'argent."
+• <strong>Action visuelle forte :</strong> démonstration produit dès l'image 1
+• <strong>Texte overlay :</strong> grande police, couleur contrastée, dès la 1ère frame</div>
+    </div>
+    <div class="field">
+      <div class="field-name">📋 Structure d'une pub e-commerce efficace</div>
+      <div class="field-value">• <strong>0-3s</strong> → Hook (accrocher l'attention)
+• <strong>3-8s</strong> → Problème / douleur du client
+• <strong>8-20s</strong> → Solution / produit
+• <strong>20-25s</strong> → Preuve / témoignage / avant-après
+• <strong>25-30s</strong> → CTA clair avec urgence</div>
+    </div>
+    <div class="field">
+      <div class="field-name">✍️ Copywriting (texte publicitaire)</div>
+      <div class="field-value">• Limite affichée : <strong>100 caractères</strong>
+• Inclure : bénéfice principal + urgence ou rareté
+• Exemples performants :
+  — "🚚 Livraison offerte aujourd'hui — 2 000 clients satisfaits"
+  — "⭐ -30% jusqu'à minuit • Stock limité"</div>
+    </div>
+    <div class="field">
+      <div class="field-name">📐 Spécifications vidéo</div>
+      <div class="field-value">• <strong>Ratio :</strong> 9:16 vertical · <strong>Résolution :</strong> 1080×1920px
+• <strong>Format :</strong> MP4/MOV · <strong>Taille max :</strong> 500MB
+• <strong>Durée idéale :</strong> 15-30s · <strong>Frame rate :</strong> 30-60fps
+• Zone safe : éviter 150px haut + 250px bas (UI TikTok)</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🧪 Stratégie créative</div>
+      <div class="field-value">• Lancer <strong>3-5 vidéos</strong> différentes par Ad Group
+• Fatigue créative moyenne : <strong>7-14 jours</strong>
+• Renouveler dès que le CTR chute de 30%+
+• <strong>UGC</strong> (style naturel, smartphone) surpasse souvent le studio
+• Budget UGC : 100-500€ via Billo, Insense, ou micro-créateurs</div>
+    </div>
+    <div class="module-footer">📚 Formation TikTok Ads Manager • Module 7/10</div>
+  </div>
+</div>
+
+<!-- ═══ MODULE 8 ═══ -->
+<div id="m8" class="content">
+  <div class="module-card" style="--color:#69C9D0;">
+    <div class="module-header" style="border-left-color:#2C3E50; background:#111;">
+      <div class="module-title">🔍 Module 8 — TikTok Pixel : Installation & Configuration</div>
+      <div class="module-desc">Le TikTok Pixel est un <strong>snippet JavaScript</strong> sur ton site qui envoie des données à TikTok. Sans Pixel, impossible d'optimiser les conversions ni de créer des audiences retargeting.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">⚙️ Les 3 méthodes d'installation</div>
+      <div class="field-value"><strong>1. Manuelle</strong> — copier-coller le code dans le <code>&lt;head&gt;</code> de chaque page.
+<strong>2. Intégration partenaire</strong> — Shopify, WooCommerce, BigCommerce : 1 clic. <strong>Recommandé.</strong>
+<strong>3. API Conversions (CAPI)</strong> — server-side, contourne les ad-blockers et restrictions iOS 14.5+. Plus précis.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">📋 Événements standards à installer</div>
+      <div class="field-value">• <code>ViewContent</code> — page produit visitée
+• <code>AddToCart</code> — produit ajouté au panier
+• <code>InitiateCheckout</code> — début du paiement
+• <code>AddPaymentInfo</code> — infos de paiement saisies
+• <code>CompletePayment</code> — <strong>achat confirmé ← le plus important</strong>
+• <code>Lead</code> · <code>Subscribe</code> · <code>Search</code></div>
+    </div>
+    <div class="field">
+      <div class="field-name">🔧 Paramètres à transmettre</div>
+      <div class="field-value"><code>ttq.track("CompletePayment", {
+  value: 49.99,
+  currency: "EUR",
+  content_id: "SKU123",
+  content_type: "product",
+  quantity: 1
+});</code>
+Le paramètre <code>value</code> est <strong>obligatoire</strong> pour l'optimisation ROAS.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">✅ Vérification & Diagnostics</div>
+      <div class="field-value">• <strong>TikTok Pixel Helper</strong> : extension Chrome, vérifie les événements en temps réel
+• <strong>Test Events</strong> dans Ads Manager (Actifs → Événements → Test Events)
+• <strong>Match Rate</strong> : viser >60% (envoyer email/téléphone hashés)</div>
+    </div>
+    <div class="field">
+      <div class="field-name">⏳ Fenêtre d'attribution</div>
+      <div class="field-value">• <strong>Par défaut :</strong> 7j après clic + 1j après vue
+• <strong>E-commerce standard :</strong> 7j clic / 0j vue
+• <strong>Produits à cycle long :</strong> 28j clic
+Configurable au niveau du Ad Group.</div>
+    </div>
+    <div class="module-footer">📚 Formation TikTok Ads Manager • Module 8/10</div>
+  </div>
+</div>
+
+<!-- ═══ MODULE 9 ═══ -->
+<div id="m9" class="content">
+  <div class="module-card" style="--color:#1DB954;">
+    <div class="module-header" style="border-left-color:#1DB954">
+      <div class="module-title">📊 Module 9 — Analyse & Optimisation des campagnes</div>
+      <div class="module-desc">Savoir lire les données est aussi important que créer des campagnes. L'optimisation est un processus continu : <strong>observer → analyser → décider → tester</strong>.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">📈 KPIs essentiels et benchmarks</div>
+      <div class="field-value">• <strong>CTR :</strong> moyen 1-3%, bon >3%, excellent >6%
+• <strong>CPM :</strong> moyen Europe 3-8 €
+• <strong>CPC :</strong> e-commerce 0,20-1,50 €
+• <strong>VCR</strong> (Video Completion Rate) : bon >30%
+• <strong>CPA :</strong> à comparer à ta marge produit
+• <strong>ROAS :</strong> objectif minimum 2-3x pour la rentabilité</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🔍 Rapport personnalisé</div>
+      <div class="field-value">Rapports → Rapport personnalisé → colonnes recommandées :
+<code>Impressions · Reach · CPM · Clics · CTR · CPC · Dépenses · Conversions · CPA · ROAS</code>
+• Filtrer par Ad Group → audiences rentables
+• Filtrer par Annonce → créatifs gagnants
+• Exporter CSV pour analyse Excel / Google Sheets</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🧪 A/B Testing natif</div>
+      <div class="field-value">• Tester <strong>1 seule variable</strong> à la fois (ciblage, placement OU créatif)
+• Budget min : <strong>50 €/variation/jour</strong>
+• Durée min : <strong>7 jours</strong>
+• TikTok divise l'audience aléatoirement (pas de chevauchement)
+• Le gagnant est désigné avec un niveau de confiance statistique</div>
+    </div>
+    <div class="field">
+      <div class="field-name">⚡ Quand agir, quand attendre ?</div>
+      <div class="field-value">✅ <strong>Augmenter le budget :</strong> CPA < objectif pendant 3 jours consécutifs
+❌ <strong>Couper une annonce :</strong> CTR <0,5% après 2 000 impressions
+❌ <strong>Couper un Ad Group :</strong> CPA >3× objectif après 5 000 impressions
+♻️ <strong>Renouveler créatifs :</strong> fréquence >3 + CTR en baisse</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🗓️ Cadence d'optimisation</div>
+      <div class="field-value">• <strong>Jours 1-7 :</strong> observer uniquement, aucune modification
+• <strong>Semaine 2 :</strong> couper les sous-performants
+• <strong>Semaine 3+ :</strong> scaler les gagnants, tester de nouveaux créatifs
+<strong>Règle 3-3-3 :</strong> 3 Ad Groups × 3 annonces = 9 combinaisons → garder le top 3 après 7j</div>
+    </div>
+    <div class="module-footer">📚 Formation TikTok Ads Manager • Module 9/10</div>
+  </div>
+</div>
+
+<!-- ═══ MODULE 10 ═══ -->
+<div id="m10" class="content">
+  <div class="module-card" style="--color:#9B59B6;">
+    <div class="module-header" style="border-left-color:#9B59B6">
+      <div class="module-title">🚀 Module 10 — Stratégies avancées TikTok Ads</div>
+      <div class="module-desc">Une fois les bases maîtrisées, ces stratégies permettent de <strong>scaler</strong> tes campagnes, <strong>maximiser le ROAS</strong> et construire un funnel publicitaire complet.</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🔄 Retargeting par niveau d'intention</div>
+      <div class="field-value"><strong>Niveau 1 — Visiteurs du site</strong> (ViewContent, 30j)
+→ Message découverte, mettre en avant les bénéfices
+
+<strong>Niveau 2 — Ajouts panier sans achat</strong> (AddToCart, 14j)
+→ Offre incitative : livraison offerte, -10%
+
+<strong>Niveau 3 — Checkouts abandonnés</strong> (InitiateCheckout, 7j)
+→ Urgence maximale : -20%, stock limité, garantie</div>
+    </div>
+    <div class="field">
+      <div class="field-name">📊 Optimisation ROAS (Value Optimization)</div>
+      <div class="field-value">• Activer <strong>"Value Optimization"</strong> dans la stratégie d'enchère
+• Transmettre la valeur de commande avec <code>CompletePayment</code>
+• TikTok optimise vers les paniers les plus élevés
+• Requiert <strong>50+ achats/semaine</strong> par Ad Group
+• Résultat : +15-30% sur le panier moyen selon les niches</div>
+    </div>
+    <div class="field">
+      <div class="field-name">⚡ Scaling horizontal vs vertical</div>
+      <div class="field-value"><strong>Vertical :</strong> augmenter le budget de l'Ad Group actuel
+→ Max <strong>+20-30%</strong> par modif · Espacer de 48h
+
+<strong>Horizontal :</strong> dupliquer l'Ad Group gagnant + nouvelle audience
+→ Plus stable · Ne relance pas la phase d'apprentissage
+→ Tester : autre pays, Lookalike 5% acheteurs, intérêts adjacents</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🌐 Structure Full Funnel recommandée</div>
+      <div class="field-value"><code>Haut du funnel  → Reach / TopView (notoriété)
+       ↓
+Milieu de funnel → Traffic / Video Views
+       (cibler viewers 75%+ vidéo awareness)
+       ↓
+Bas du funnel    → Conversions
+       (retargeter visiteurs + AddToCart)</code></div>
+    </div>
+    <div class="field">
+      <div class="field-name">🤝 Creator Marketplace</div>
+      <div class="field-value">• Plateforme officielle pour trouver des créateurs/influenceurs
+• Filtres : niche, localisation, taille d'audience, taux d'engagement
+• <strong>Combo gagnant :</strong> collaboration organique + Spark Ads
+• UGC de créateurs convertit en moyenne <strong>3× mieux</strong> qu'une pub de marque</div>
+    </div>
+    <div class="field">
+      <div class="field-name">🎓 Ressources officielles</div>
+      <div class="field-value">• <strong>TikTok Academy</strong> — certification gratuite "Advertising Fundamentals"
+• <strong>TikTok Creative Center</strong> — top ads par niche, pays, secteur
+• <strong>TikTok Business Help Center</strong> — documentation officielle
+La plateforme évolue vite → vérifier les nouveautés chaque mois</div>
+    </div>
+    <div class="module-footer">📚 Formation TikTok Ads Manager • Module 10/10 — Formation complète ! 🎉</div>
+  </div>
+</div>
+
+<script>
+  function show(id) {
+    document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    const idx = ['menu','m1','m2','m3','m4','m5','m6','m7','m8','m9','m10'].indexOf(id);
+    document.querySelectorAll('.nav-btn')[idx].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
